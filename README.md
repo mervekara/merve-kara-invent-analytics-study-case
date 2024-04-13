@@ -41,7 +41,7 @@ npm install
     npm start
 ```
 
-This will start the development server. Open [http://localhost:3000](localhost) in your browser to view the application. And you can see [http://localhost:3000](live solution)
+This will start the development server. Open [localhost](http://localhost:3000) in your browser to view the application. And you can see [LIVE](https://merve-kara-invent-analytics-study-case.vercel.app/)
 
 ## License
 
