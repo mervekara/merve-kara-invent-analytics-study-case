@@ -25,7 +25,7 @@ This is a web application that allows users to search for movies, view details a
 1. **Clone the Repository:**
 
 ```bash
-
+https://github.com/mervekara/merve-kara-invent-analytics-study-case.git
 
 ```
 2. **Install Dependencies:**
