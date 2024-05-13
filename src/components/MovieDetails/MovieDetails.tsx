@@ -31,11 +31,11 @@ const MovieDetails: React.FC = () => {
       <Grid verticalAlign="middle" centered>
         <Grid.Row>
           <Grid.Column mobile={16} tablet={8} computer={8} textAlign="center">
-            <Image
-              src={movieDetails.Poster}
+          <Image
+              src={movieDetails.Poster !== 'N/A' ? movieDetails.Poster : require('../../images/no_image.jpg')}
               alt={movieDetails.Title}
               size="medium"
-            />
+          />
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <h2>{movieDetails.Title}</h2>
@@ -66,7 +66,7 @@ const MovieDetails: React.FC = () => {
               </List.Item>
               <List.Item>
                 <List.Header>IMDb Rating:</List.Header>
-                {movieDetails.imdbRating}
+                {movieDetails.ImdbRating}
               </List.Item>
             </List>
             <Button as={Link} to="/" content="Back to Movie List" />

@@ -1,4 +1,3 @@
-import { BASE_URL, API_KEY } from "../config/config";
 import { MovieResponse, MovieDetails } from "../types/types";
 
 const MovieService = {
@@ -10,7 +9,7 @@ const MovieService = {
   ): Promise<MovieResponse> => {
     try {
       const response = await fetch(
-        `${BASE_URL}?apikey=${API_KEY}&s=${searchTerm}&page=${page}&y=${year}&type=${type}`,
+        `${process.env.REACT_APP_BASE_URL}?apikey=${process.env.REACT_APP_API_KEY}&s=${searchTerm}&page=${page}&y=${year}&type=${type}`,
       );
       const data: MovieResponse = await response.json();
 
@@ -31,7 +30,7 @@ const MovieService = {
 
   getMovieDetails: async (imdbID: string): Promise<MovieDetails> => {
     try {
-      const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${imdbID}`);
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}?apikey=${process.env.REACT_APP_API_KEY}&i=${imdbID}`);
       const data: MovieDetails = await response.json();
 
       if (!response.ok || data.Response === "False") {

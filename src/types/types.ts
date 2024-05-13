@@ -1,5 +1,5 @@
 export interface Movie {
-  imdbID: string;
+  ImdbID: string;
   Title: string;
   Year: string;
   Director: string;
@@ -17,7 +17,7 @@ export interface MovieDetails {
   Director: string;
   Genre: string;
   Actors: string;
-  imdbRating: string;
+  ImdbRating: string;
   Released: string;
   Poster: string;
   Runtime: string;
