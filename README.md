@@ -10,16 +10,6 @@ This is a web application that allows users to search for movies, view details a
 - **Pagination:** Search results are paginated to improve navigation.
 - **Responsive Design:** The user interface is designed to be responsive and adapt to different screen sizes.
 
-## Technologies Used
-
-- **Frontend:** React.js, TypeScript, Semantic UI React
-- **Backend:** The application fetches movie data from the OMDb API
-- **Styling:** CSS (with SCSS for preprocessing)
-- **Build Tool:** Webpack
-- **Routing:** React Router
-- **State Management:** React Hooks (useState, useEffect)
-- **Date Formatting:** Moment.js
-
 ## Getting Started
 
 1. **Clone the Repository:**
@@ -41,7 +31,7 @@ npm install
     npm start
 ```
 
-This will start the development server. Open [http://localhost:3000](localhost) in your browser to view the application. And you can see [http://localhost:3000](live solution)
+This will start the development server. Open [localhost](http://localhost:3000) in your browser to view the application. And you can see [LIVE](https://merve-kara-invent-analytics-study-case.vercel.app/)
 
 ## License
 
