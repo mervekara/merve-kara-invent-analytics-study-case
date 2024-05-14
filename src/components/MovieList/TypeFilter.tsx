@@ -23,6 +23,7 @@ const TypeFilter: React.FC<TypeFilterProps> = ({ onFilter }) => {
       selection
       options={typeOptions}
       onChange={handleTypeChange}
+      clearable
     />
   );
 };

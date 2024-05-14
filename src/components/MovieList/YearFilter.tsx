@@ -26,6 +26,7 @@ const YearFilter: React.FC<YearFilterProps> = ({ onFilter }) => {
       selection
       options={years}
       onChange={handleYearChange}
+      clearable
     />
   );
 };

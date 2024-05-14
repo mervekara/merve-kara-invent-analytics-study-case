@@ -4,6 +4,7 @@ import { SearchBarProps } from "../../types/types";
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [clearTerm, setClearTerm] = useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -12,6 +13,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const handleSubmit = () => {
     if (searchTerm.length > 0) {
       onSearch(searchTerm);
+      setClearTerm(true);
     }
   };
 
@@ -20,6 +22,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       handleSubmit();
     }
   };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setClearTerm(false);
+    onSearch('Pokemon');
+  }
 
   return (
     <Input
@@ -34,6 +42,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <Button type="submit" onClick={handleSubmit}>
         Search
       </Button>
+      {clearTerm && (
+        <Button type="submit" onClick={handleClearSearch} icon='cancel' />
+      )}
     </Input>
   );
 };
