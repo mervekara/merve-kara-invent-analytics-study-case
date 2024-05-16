@@ -30,7 +30,9 @@ const MovieService = {
 
   getMovieDetails: async (imdbID: string): Promise<MovieDetails> => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}?apikey=${process.env.REACT_APP_API_KEY}&i=${imdbID}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}?apikey=${process.env.REACT_APP_API_KEY}&i=${imdbID}`,
+      );
       const data: MovieDetails = await response.json();
 
       if (!response.ok || data.Response === "False") {
@@ -39,7 +41,6 @@ const MovieService = {
         );
       }
       return data;
-
     } catch (error) {
       console.error("Error fetching movie details: ", error);
 

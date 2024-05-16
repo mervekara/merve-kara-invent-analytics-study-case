@@ -1,8 +1,11 @@
 import React from "react";
 import { Dropdown } from "semantic-ui-react";
+import { useSearch } from "../../context/SearchContext";
 import { TypeFilterProps } from "../../types/types";
 
 const TypeFilter: React.FC<TypeFilterProps> = ({ onFilter }) => {
+  const { typeFilter } = useSearch();
+
   const typeOptions = [
     { key: "movie", text: "Movie", value: "movie" },
     { key: "series", text: "Series", value: "series" },
@@ -24,6 +27,7 @@ const TypeFilter: React.FC<TypeFilterProps> = ({ onFilter }) => {
       options={typeOptions}
       onChange={handleTypeChange}
       clearable
+      value={typeFilter || undefined}
     />
   );
 };

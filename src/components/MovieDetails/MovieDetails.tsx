@@ -1,5 +1,12 @@
 import React from "react";
-import { Container, Message, List, Image, Grid, Button } from "semantic-ui-react";
+import {
+  Container,
+  Message,
+  List,
+  Image,
+  Grid,
+  Button,
+} from "semantic-ui-react";
 import moment from "moment";
 import { useParams, Link } from "react-router-dom";
 import useMovieDetails from "../../hooks/useMovieDetails"; // Import the custom hook
@@ -31,11 +38,15 @@ const MovieDetails: React.FC = () => {
       <Grid verticalAlign="middle" centered>
         <Grid.Row>
           <Grid.Column mobile={16} tablet={8} computer={8} textAlign="center">
-          <Image
-              src={movieDetails.Poster !== 'N/A' ? movieDetails.Poster : require('../../images/no_image.jpg')}
+            <Image
+              src={
+                movieDetails.Poster !== "N/A"
+                  ? movieDetails.Poster
+                  : require("../../images/no_image.jpg")
+              }
               alt={movieDetails.Title}
               size="medium"
-          />
+            />
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <h2>{movieDetails.Title}</h2>

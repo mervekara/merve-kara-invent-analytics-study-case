@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import { Input, Button } from "semantic-ui-react";
 import { SearchBarProps } from "../../types/types";
+import { useSearch } from "../../context/SearchContext";
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [clearTerm, setClearTerm] = useState(false);
+  const { searchTerm } = useSearch();
+
+  const [currentSearchTerm, setCurrentSearchTerm] = useState(
+    searchTerm === "Pokemon" ? "" : searchTerm,
+  );
+
+  const [isClearable, setIsClearable] = useState(
+    searchTerm === "Pokemon" ? false : true,
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    setCurrentSearchTerm(event.target.value);
   };
 
   const handleSubmit = () => {
-    if (searchTerm.length > 0) {
-      onSearch(searchTerm);
-      setClearTerm(true);
+    if (currentSearchTerm.length > 0) {
+      onSearch(currentSearchTerm);
+      setIsClearable(true);
     }
   };
 
@@ -24,16 +32,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   const handleClearSearch = () => {
-    setSearchTerm('');
-    setClearTerm(false);
-    onSearch('Pokemon');
-  }
+    setCurrentSearchTerm("");
+    setIsClearable(false);
+    onSearch("Pokemon");
+  };
 
   return (
     <Input
       style={{ width: "100%" }}
       placeholder="Search movies..."
-      value={searchTerm}
+      value={currentSearchTerm}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       action
@@ -42,8 +50,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <Button type="submit" onClick={handleSubmit}>
         Search
       </Button>
-      {clearTerm && (
-        <Button type="submit" onClick={handleClearSearch} icon='cancel' />
+      {isClearable && (
+        <Button type="submit" onClick={handleClearSearch} icon="cancel" />
       )}
     </Input>
   );

@@ -1,9 +1,12 @@
 import React from "react";
 import { Dropdown, DropdownItemProps } from "semantic-ui-react";
 import moment from "moment"; // Import Moment.js
+import { useSearch } from "../../context/SearchContext";
 import { YearFilterProps } from "../../types/types";
 
 const YearFilter: React.FC<YearFilterProps> = ({ onFilter }) => {
+  const { yearFilter } = useSearch();
+
   // Generate an array of years from 1900 to the current year
   const years: DropdownItemProps[] = [];
   const currentYear = moment().year();
@@ -27,6 +30,7 @@ const YearFilter: React.FC<YearFilterProps> = ({ onFilter }) => {
       options={years}
       onChange={handleYearChange}
       clearable
+      value={yearFilter || undefined}
     />
   );
 };

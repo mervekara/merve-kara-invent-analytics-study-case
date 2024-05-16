@@ -1,3 +1,14 @@
+export interface SearchContextType {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  yearFilter: string;
+  setYearFilter: (year: string) => void;
+  typeFilter: string;
+  setTypeFilter: (type: string) => void;
+  currentPage: number;
+  setCurrentPage: (page: number) => void;
+}
+
 export interface Movie {
   ImdbID: string;
   Title: string;

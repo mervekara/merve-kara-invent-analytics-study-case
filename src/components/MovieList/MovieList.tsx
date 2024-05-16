@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Table, Pagination, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import moment from "moment";
@@ -8,11 +8,19 @@ import TypeFilter from "./TypeFilter";
 import Loader from "../common/Loader";
 import useMovieList from "../../hooks/useMovieList";
 
+import { useSearch } from "../../context/SearchContext";
+
 const MovieList: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState("Pokemon");
-  const [yearFilter, setYearFilter] = useState("");
-  const [typeFilter, setTypeFilter] = useState("");
+  const {
+    currentPage,
+    setCurrentPage,
+    searchTerm,
+    setSearchTerm,
+    yearFilter,
+    setYearFilter,
+    typeFilter,
+    setTypeFilter,
+  } = useSearch();
 
   const { movies, totalPages, error } = useMovieList(
     searchTerm,
